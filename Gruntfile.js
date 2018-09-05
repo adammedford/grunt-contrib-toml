@@ -8,7 +8,7 @@
 
 'use strict';
 
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
   // Project configuration.
   grunt.initConfig({
@@ -29,10 +29,14 @@ module.exports = function(grunt) {
     },
 
     // Configuration to be run (and then tested).
-    contrib_toml: {
+    toml: {
+      compile: {
+        files: {
+          'tmp/example-v0.4.0.json': 'test/fixtures/example-v0.4.0.toml',
+        }
+      },
       default_options: {
-        options: {
-        },
+        options: {},
         files: {
           'tmp/default_options': ['test/fixtures/testing', 'test/fixtures/123']
         }
@@ -45,7 +49,7 @@ module.exports = function(grunt) {
         files: {
           'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123']
         }
-      }
+      },
     },
 
     // Unit tests.
@@ -65,7 +69,7 @@ module.exports = function(grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'contrib_toml', 'nodeunit']);
+  grunt.registerTask('test', ['clean', 'toml', 'nodeunit']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);
