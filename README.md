@@ -2,6 +2,8 @@
 
 > Compile TOML files to JSON
 
+Grunt plugin wrapper around [toml-node](http://binarymuse.github.io/toml-node/) to read TOML files as JSON.
+
 ## Getting Started
 This plugin requires Grunt `~1.0.0`
 
